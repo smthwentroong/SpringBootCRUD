@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>tasks</title>
+    <link href="../static/css/tasks.css" th:href="@{/css/tasks.css}" rel="stylesheet" />
 </head>
 <body>
-
+<table>
+    <thead>
+    <th>Id</th>
+    <th>Description</th>
+    <th>Status</th>
+    </thead>
+    <tbody>
+    <tr th:each="task,number : ${tasksList}">
+        <td th:text="${task.id}">VALUE</td>
+        <td th:text="${task.description}" th:id="'description_' + ${task.id}">VALUE</td>
+        <td th:text="${task.status}" th:id="'status_' + ${task.id}">VALUE</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
