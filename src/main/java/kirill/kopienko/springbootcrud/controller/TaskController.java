@@ -25,7 +25,7 @@ public class TaskController {
     @GetMapping("/")
     public String tasks(Model model,
                         @RequestParam(name = "limit", required = false, defaultValue = "10") int limit,
-                        @RequestParam(name = "offset", required = false, defaultValue = "1") int offset) {
+                        @RequestParam(name = "offset", required = false, defaultValue = "0") int offset) {
         List<Task> listToShow = taskService.findAll(limit, offset);
         model.addAttribute("tasksList", listToShow);
         return "tasks";
